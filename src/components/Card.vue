@@ -10,8 +10,8 @@ export default{
   },
   props:{
         name:String,
-        types:String,
-        image:String
+        race:String,
+        image:String,
     }
 }
 
@@ -20,12 +20,13 @@ export default{
 <template>
 
     <div class="bg-warning">
+        <img :src="image" :alt="name" class="w-100">
         <h5 class="text-white">{{ name.toUpperCase() }}</h5>
-        <h5>{{ types }}</h5>
+        <h5>{{ race }}</h5>
     </div>
 
 </template>
 
 <style scoped lang="scss">
-
+    
 </style>
