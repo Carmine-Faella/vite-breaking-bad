@@ -4,6 +4,7 @@ import {store} from './store.js'
 import MyHeader from './components/MyHeader.vue';
 import Search from './components/Search.vue';
 import CardList from './components/CardList.vue';
+import Loading from './components/Loading.vue';
 
 
 
@@ -11,7 +12,8 @@ export default{
   components:{
     MyHeader,
     CardList,
-    Search
+    Search,
+    Loading
   },
   data(){
     return{
@@ -22,6 +24,7 @@ export default{
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
     .then(response=>{
       this.store.cardList = response.data.data;
+      this.store.load = false;
     })
   }
 }
@@ -30,17 +33,21 @@ export default{
 
 <template>
   <header>
+
     <MyHeader/>
+
   </header>
 
   <main class="bg-warning py-5">
+
+    <Loading/>
     <CardList/>
+
   </main>
   
 </template>
 
 <style lang="scss">
 @use './styles/general.scss';
-
 
 </style>
