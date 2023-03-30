@@ -20,12 +20,21 @@ export default{
       store
     }
   },
+  methods:{
+    getCards(){
+
+      let url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?level=4&attribute=water&sort=atk';
+
+      axios.get(url)
+      .then(response=>{
+        this.store.cardList = response.data.data;
+        this.store.load = false;
+      });
+
+    }
+  },
   created(){
-    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
-    .then(response=>{
-      this.store.cardList = response.data.data;
-      this.store.load = false;
-    })
+    this.getCards()
   }
 }
 
@@ -41,6 +50,7 @@ export default{
   <main class="bg-warning py-5">
 
     <Loading/>
+    <Search/>
     <CardList/>
 
   </main>
