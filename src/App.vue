@@ -5,6 +5,7 @@ import MyHeader from './components/MyHeader.vue';
 import Search from './components/Search.vue';
 import CardList from './components/CardList.vue';
 import Loading from './components/Loading.vue';
+import NumberCard from './components/NumberCard.vue';
 
 
 
@@ -13,7 +14,8 @@ export default{
     MyHeader,
     CardList,
     Search,
-    Loading
+    Loading,
+    NumberCard
   },
   data(){
     return{
@@ -51,6 +53,7 @@ export default{
 
     <Loading/>
     <Search/>
+    <NumberCard/>
     <CardList/>
 
   </main>
