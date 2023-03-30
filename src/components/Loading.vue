@@ -25,7 +25,9 @@ export default{
         top: 0;
         left: 0;
         width: 100%;
-        height: 300px;
-        text-align: center;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
