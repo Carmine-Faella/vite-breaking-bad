@@ -25,12 +25,22 @@ export default{
   methods:{
     getCards(){
 
-      let url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?level=4&attribute=water&sort=atk';
+      let url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=100&offset=0';
+      let urlAchetype =  'https://db.ygoprodeck.com/api/v7/archetypes.php';
+
+      if(store.selected){
+        url+= '&archetype='+store.selected
+      }
 
       axios.get(url)
       .then(response=>{
         this.store.cardList = response.data.data;
         this.store.load = false;
+      });
+
+      axios.get(urlAchetype)
+      .then(response=>{
+        this.store.acheType = response.data;
       });
 
     }
@@ -52,7 +62,7 @@ export default{
   <main class="bg-warning py-5">
 
     <Loading/>
-    <Search/>
+    <Search @doSelect="getCards"/>
     <NumberCard/>
     <CardList/>
 

@@ -22,7 +22,7 @@ export default{
         <div class="row">
             <div class="col-lg-3 col-md-6" v-for="(card,index) in store.cardList" :key="index">
                 
-                <Card :name="card.name" :race="card.race" :image="card.card_images[0].image_url" :attribute="card.attribute"/>
+                <Card :name="card.name" :archetype="card.archetype" :image="card.card_images[0].image_url" :attribute="card.attribute"/>
                 
             </div>
         </div>

@@ -10,7 +10,7 @@ export default{
   },
   props:{
         name:String,
-        race:String,
+        archetype:String,
         image:String,
     }
 }
@@ -22,7 +22,7 @@ export default{
     <div class="text-center bg-warning my-2 card-wrapper">
         <img :src="image" :alt="name" class="w-100">
         <h5 class="text-white p-3">{{ name.toUpperCase() }}</h5>
-        <h5>{{ race }}</h5>
+        <h5>{{ archetype }}</h5>
     </div>
 
 </template>
